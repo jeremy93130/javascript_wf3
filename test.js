@@ -32,28 +32,28 @@ if (age < 5) {
 // En utilisant la structure conditionnelle switch, écrire un programme qui affiche le jour de la semaine en fonction d'un nombre donné
 // si nombre = 0 , afficher dimanche.....
 
-let jourSemaine = "Jeudi";
+let jourSemaine = 4;
 
 switch (jourSemaine) {
-  case "Dimanche":
+  case 0:
     console.log("Dimanche");
     break;
-  case "Lundi":
+  case 1:
     console.log("Lundi");
     break;
-  case "Mardi":
+  case 2:
     console.log("Mardi");
     break;
-  case "Mercredi":
+  case 3:
     console.log("Mercredi");
     break;
-  case "Jeudi":
+  case 4:
     console.log("Jeudi");
     break;
-  case "Vendredi":
+  case 5:
     console.log("Vendredi");
     break;
-  case "Samedi":
+  case 6:
     console.log("Samedi");
     break;
   default:
