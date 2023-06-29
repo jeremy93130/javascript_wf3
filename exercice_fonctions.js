@@ -36,7 +36,8 @@ function someTab(array) {
   return sum;
 }
 
-let resultat = someTab([40, 75, 1023, 55, 34, 22, 2000]);
+let tab = [40, 75, 1023, 55, 34, 22, 2000];
+let resultat = someTab(tab);
 console.log(resultat);
 
 // Ecrire une fonction maxTab qui prend en paramètre un tableau composé de
@@ -46,11 +47,20 @@ console.log(resultat);
 // maxTab([2, 7, 4, 0]) => 7
 
 function maxTab(array) {
+  let max = array[0]; // on considère la premiere valeur du tableau comme étant la plus grande
   for (i = 0; i < array.length; i++) {
-    return Math.max(...array);
+    //Pour i allant de 0 à la taille du tableau
+    // comparer max à la valeur de la position i du tableau
+    if (max < array[i]) {
+      // Si max est plus grand que l'un des éléments du tableau à chaque itération , on remplace sa valeur par celui ci.
+      max = array[i];
+    }
   }
+  return max; // Retourne la valeur de la variable max apres la boucle et le if
 }
-var resultatTab = maxTab([5, 8, 2, 33, 243, 28, 1392, 33]);
+
+let tab2 = [5, 8, 2, 33, 243, 28, 1392, 33, 4800];
+var resultatTab = maxTab(tab2);
 console.log(resultatTab);
 
 // ecrire une fonction minTab qui prend en paramètre un tableau composé de
@@ -60,12 +70,18 @@ console.log(resultatTab);
 // minTab([2, 7, 4, 0]) => 0
 
 function minTab(array) {
+  let min = array[0]; // on considère la premiere valeur du tableau comme étant la plus petite
   for (i = 0; i < array.length; i++) {
-    return Math.min(...array);
+    if (min > array[i]) {
+      // Si min est plus petit que l'un des éléments du tableau à chaque itération , on remplace sa valeur par celui ci.
+      min = array[i];
+    }
   }
+  return min;
 }
 
-var resultatTabMini = minTab([12, 48, 192, 17, 3, 1213, 1, 84, 67, 355]);
+let tab3 = [12, 48, 192, 17, 3, 1213, 1, 84, 67, 355];
+var resultatTabMini = minTab(tab3);
 console.log(resultatTabMini);
 
 // ecrire une fonction maxMinTab qui prend en paramètre un tableau composé de
@@ -78,26 +94,39 @@ console.log(resultatTabMini);
 // maxMinTab([2, 7, 4, 0], false) => 0
 
 function maxMinTab(array, boolean) {
-  for (i = 0; i < array.length; i++) {
-    if (boolean) {
-      return Math.max(...array);
-    } else {
-      return Math.min(...array);
+  let min = array[0];
+  let max = array[0];
+  for (let i = 0; i < array.length; i++) {
+    if (boolean && max < array[i]) {
+      max = array[i];
+    } else if (!boolean && min > array[i]) {
+      min = array[i];
     }
+  }
+  if (boolean) {
+    return max;
+  } else {
+    return min;
   }
 }
 
-let resultatMinMaxTab = maxMinTab(
-  [43, 22, 198, 12, 1920, 13, 4, 78, 109],
-  true
-);
+let tabMinMax = [43, 22, 198, 12, 1920, 13, 4, 78, 109];
 
-let resultatMinMaxiTab = maxMinTab(
-  [43, 22, 198, 12, 1920, 13, 4, 78, 109],
-  false
-);
+let resultatMinMaxTab = maxMinTab(tabMinMax, true);
+
+let resultatMinMaxiTab = maxMinTab(tabMinMax, false);
 console.log(resultatMinMaxTab);
 console.log(resultatMinMaxiTab);
+
+//  Solution 2 :
+
+function maxMiniTab(array, c) {
+  if (c) {
+    return maxTab(array);
+  } else {
+    return minTab(array);
+  }
+}
 
 // Soit les tableaux suivants :
 const array = [1, 12, 3, 67, 1, 23, 0, 87];
@@ -114,14 +143,111 @@ verifSortAsc(array) => doit retourner "false"
 verifSortAsc(array2) => doit retourner "true"*/
 
 function verifSortAsc(array) {
+  let estTrie = true; // Par defaut on considere que le tableau est trié
+  let tab = []; // Déclare un tableau vide pour avoir une copy du tableau
+
   for (i = 0; i < array.length; i++) {
-    if (array.sort() === array) {
-      return true;
+    // Remplir le tableau tab par les valeurs du tableau array
+    tab.push(array[i]);
+  }
+  tab.sort(); // Trier tab
+
+  for (i = 0; i < array.length; i++) {
+    //Pour i allant de 0 à la taille du tableau (dans ce cas peu importe si c'est array.length ou tab.length);
+    if (tab[i] == array[i]) {
+      // Si tab[i] == array[i] estTrie = true
+      estTrie = true;
     } else {
-      return false;
+      // sinon
+      estTrie = false; // estTrie = false
+      break; // On sort de la boucle dès la premiere différence entre tab[i] et array[i] (pour éviter de boucler toute la boucle et retourner seulement true)
     }
   }
+  return estTrie;
 }
 
-let verif = verifSortAsc(array)
-console.log(array)
+let verifSort = verifSortAsc(array5);
+console.log(verifSort);
+
+// Ecrivez une fonction "reverseWord" qui prend une chaîne de caractère en paramètre et qui retourne la chaîne de caractères inversée.
+// Exemple :
+// reverseWord("Hello World!") => doit retourner "!dlroW olleH"
+
+function reverseWord(str) {
+  let newStr = str.split("").reverse().join("");
+
+  return newStr;
+}
+
+let newStr = reverseWord("Hello World ! ");
+
+console.log(newStr);
+
+function reverseArray(array) {
+  return array.reverse();
+}
+
+function reverseWords(...words) {
+  // ...words ( on ne sait pas combien de paramètre nous aurons besoin , donc il ajoutera autant de paramètres que nécessaires)
+  let resultat = [];
+  for (let i = 0; i < words.length; i++) {
+    resultat.push(reverseWord(words[i]));
+  }
+  reverseArray(resultat);
+  // words.map(reverseWord); //
+  return resultat;
+}
+
+let reversedWords = reverseWords("Salut", "je", "m'appelle", "jeremy");
+console.log(reversedWords);
+
+function phrase(tab) {
+  let resultat = reverseArray(reverseWords(...tab));
+  return resultat;
+}
+
+const words = [
+  "s.e.têrp",
+  "sap",
+  "setê'n",
+  "suoV",
+  "ces",
+  "redoc",
+  "av",
+  "aç",
+  "eénna",
+  "etteC",
+];
+
+let reversed = phrase(words);
+
+/*crire une fonction estPalindrome qui prend en paramètre une chaine de 
+caractere
+la fonction doit retourner true si le paramètre est un palindrome
+dans le cas contraire elle doit retourner false
+Un palindrome est un mot, une phrase, un nombre ou toute autre séquence de 
+caractères qui reste identique dans les deux sens de lecture (gauche vers la 
+droite et droite vers la gauche)
+les mots Radar, Level, Civic, Deified, Madam, Kayak, Rotator, Stats sont des 
+palindromes.*/
+
+// function estPalindrome(string) {
+
+// }
+
+// var palindrome = estPalindrome("radar")
+
+// console.log(palindrome)
+
+// EXERCICE :
+
+// Ecrire une variable âge;
+// en utilisant la structure conditionnelle ternaire
+// écrire un code qui permet d'afficher le message bien si la note est supérieure ou egal à 15
+// mauvais si note est strictement inférieure à 15
+
+function notation(nb) {
+  nb >= 15 ? console.log("Très bien") : console.log("Mauvais");
+}
+
+notation(11)
