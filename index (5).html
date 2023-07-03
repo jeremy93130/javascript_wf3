@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+    <ul id="maListe">
+        <li>Item 1</li>
+        <li>Item 2</li>
+        <li>Item 3</li>
+    </ul>
+    <script>
+        // Sélection de l'élément par son identifiant
+        var liste = document.getElementById("maListe");
+        // Accéder à la liste des nœuds enfants de l'élément
+        var enfants = liste.childNodes;
+        console.log(enfants.length);
+        // Parcourir la liste des nœuds enfants et afficher leurs noms
+        for (var i = 0; i < enfants.length; i++) {
+            console.log(enfants[i].nodeName);
+        }
+
+        //  si on veut recuperer le premier enfant de liste
+        liste.firstChild;
+        // le deuxieme enfant
+        liste.childNodes[1];
+        enfants[1];
+        
+    </script>
+</body>
+</html>

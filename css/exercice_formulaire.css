@@ -1,0 +1,41 @@
+.container {
+    width: 600px;
+    margin: auto;
+    border: none;
+}
+
+input:first-child {
+    margin: 30px auto;
+}
+
+input:nth-child(2) {
+    margin: 15px auto;
+}
+
+h2 {
+    width: 100%;
+    text-align: center;
+}
+
+div {
+    border: 1px solid black;
+    width: 500px;
+    height: 400px;
+    margin: auto;
+}
+
+.container div:nth-child(1),
+.container div:nth-child(2) {
+    border: none;
+    height: auto;
+    margin: auto;
+    width: 50%;
+}
+
+.red {
+    color: red;
+}
+
+.black {
+    color: black;
+}
