@@ -5,11 +5,11 @@
 }
 
 input:first-child {
-    margin: 30px auto;
+    margin: 5px auto;
 }
 
 input:nth-child(2) {
-    margin: 15px auto;
+    margin: 10px auto;
 }
 
 h2 {
@@ -22,6 +22,7 @@ div {
     width: 500px;
     height: 400px;
     margin: auto;
+    text-align: center;
 }
 
 .container div:nth-child(1),
@@ -32,10 +33,31 @@ div {
     width: 50%;
 }
 
+.txt{
+    border: 3px solid black;
+    box-shadow: 3px 3px 3px black;
+}
+label {
+    display: block;
+    text-align: center;
+}
+
 .red {
     color: red;
 }
 
 .black {
     color: black;
+}
+
+p{
+    font-size: 18px;
+    text-align: center;
+    /* background-color: black; */
+    font-weight: bold;
+    font-family: sans-serif;
+    text-transform: capitalize;
+}
+p:hover{
+    cursor:default;
 }
