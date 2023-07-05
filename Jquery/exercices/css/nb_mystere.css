@@ -1,0 +1,115 @@
+form {
+    border: 1px solid black;
+    width: 50%;
+    margin: auto;
+}
+
+input {
+    margin: 10px 0;
+    background-color: white;
+}
+
+button {
+    margin: 10px 0;
+}
+
+body {
+    text-align: center;
+    color: white;
+    font-family: "Bebas Neue", sans-serif;
+
+    font-family: "Montserrat", sans-serif;
+
+    font-family: "Roboto", sans-serif;
+
+    background-image: url(/Jquery/exercices/img/wassila_img.png);
+
+    background-size: cover;
+
+}
+
+h1 {
+
+    color: rgb(63, 49, 154);
+
+    margin: 50px;
+
+    text-align: center;
+
+}
+
+
+
+
+.regle {
+
+    width: 70%;
+
+    margin: auto;
+
+}
+
+
+
+
+p {
+
+    font-size: 25px;
+
+    color: rgb(83, 70, 224);
+
+    font-weight: bold;
+
+    text-align: center;
+
+}
+
+
+
+
+button {
+
+    width: 100px;
+
+    height: 30px;
+
+    margin: 20px;
+
+    border-radius: 20px;
+
+    background-color: rgb(165, 159, 206);
+
+}
+
+.proposition {
+
+    text-align: center;
+
+}
+
+
+
+
+fieldset {
+
+    border: 1px solid rgb(83, 70, 224);
+
+    width: 400px;
+
+    margin: auto;
+
+    font-weight: bold;
+
+    color: #2f8cff;
+
+    padding: 20px;
+
+}
+
+.ligne {
+
+    margin: 20px;
+
+    text-align: center;
+
+}
