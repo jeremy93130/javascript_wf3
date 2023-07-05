@@ -1,6 +1,6 @@
-let aleatoire = Math.floor(Math.random() * 101);
+let aleatoire = Math.floor(Math.random() * 51);
 console.log(aleatoire);
-let essai = 7;
+let essai = 6;
 $("#essai").val(essai);
 let trouve = false;
 
@@ -15,7 +15,6 @@ $("#solution").on("click", (e) => {
 $("#proposer").on("click", (e) => {
   e.preventDefault();
   if (essai > 0 && !trouve) {
-    
     if (isNaN($("#proposition").val()) || $("#proposition").val() === "") {
       $("#message").val("Merci d'entrer une valeur décimale ! ");
     } else {
@@ -27,6 +26,8 @@ $("#proposer").on("click", (e) => {
       $("#proposition").val() !== ""
     ) {
       $("#message").val(`Vous avez trouvé le nombre mystère, félicitations !`);
+      $("#message").css("color", "black");
+      alert("Félicitations, vous avez trouvé le nombre mystère");
       $("#reponse").val(aleatoire);
       $("#proposer").attr("disabled", true);
     } else if (
@@ -41,7 +42,7 @@ $("#proposer").on("click", (e) => {
       $("#message").val(`nombre trop petit`);
     }
   } else {
-      $("#message").val(`nombre de tours achevé`);
-      $("#proposition").attr("disabled", true);
+    $("#message").val(`nombre de tours achevé`);
+    $("#proposition").attr("disabled", true);
   }
 });
