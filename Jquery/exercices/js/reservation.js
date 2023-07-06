@@ -66,7 +66,6 @@ let plat = $("#plat");
 let dessert = $("#dessert");
 
 plat.on("change", () => {
-  let prix;
   let tvaValue;
   switch (plat.val()) {
     case "thiebou":
