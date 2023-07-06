@@ -1,8 +1,10 @@
-
-// Je déclare une variable qui 
-let aleatoire = Math.floor(Math.random() * 101);
+// Je déclare une variable qui retourne un nombre aléatoire entre 0 et 50
+let aleatoire = Math.floor(Math.random() * 51);
 console.log(aleatoire);
+
+// Je déclare une variable qui prend 7 en valeur (le nombre d'essais disponibles à l'utilisateur)
 let essai = 7;
+// je met la variable essai dans la valeur de l'input (la valeur sera 7)
 $("#essai").val(essai);
 let trouve = false;
 
@@ -17,7 +19,6 @@ $("#solution").on("click", (e) => {
 $("#proposer").on("click", (e) => {
   e.preventDefault();
   if (essai > 0 && !trouve) {
-    
     if (isNaN($("#proposition").val()) || $("#proposition").val() === "") {
       $("#message").val("Merci d'entrer une valeur décimale ! ");
     } else {
@@ -43,7 +44,7 @@ $("#proposer").on("click", (e) => {
       $("#message").val(`nombre trop petit`);
     }
   } else {
-      $("#message").val(`nombre de tours achevé`);
-      $("#proposition").attr("disabled", true);
+    $("#message").val(`nombre de tours achevé`);
+    $("#proposition").attr("disabled", true);
   }
 });
