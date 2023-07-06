@@ -1,0 +1,51 @@
+.container {
+    width: 500px;
+    margin: auto;
+    border: 1px solid gray;
+}
+
+h1 {
+    text-align: center;
+}
+
+form {
+    width: 100%;
+}
+
+input,
+select,
+button {
+    border: 2px solid black;
+    border-radius: 3px;
+}
+
+input:not(#conditions, .ttchtc) {
+    display: block;
+    width: 490px;
+    margin: 10px 0;
+    border: 2px solid black;
+    border-radius: 3px;
+}
+
+form div {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    width: 75%;
+    margin: auto;
+}
+
+form div select {
+    margin: 15px 0;
+    width: 150px;
+}
+
+form>div>input {
+    width: 140px;
+    margin: 5px 0 15px 0;
+}
+
+#buttondiv{
+    display: flex;
+    justify-content: end;
+}

@@ -1,6 +1,10 @@
+// Je déclare une variable qui retourne un nombre aléatoire entre 0 et 50
 let aleatoire = Math.floor(Math.random() * 51);
 console.log(aleatoire);
-let essai = 6;
+
+// Je déclare une variable qui prend 7 en valeur (le nombre d'essais disponibles à l'utilisateur)
+let essai = 7;
+// je met la variable essai dans la valeur de l'input (la valeur sera 7)
 $("#essai").val(essai);
 let trouve = false;
 
