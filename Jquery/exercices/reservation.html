@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <link rel="stylesheet" href="css/reservation.css" />
+    <title>reservation</title>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Formulaire de réservation</h1>
+      <form action="" id="monform">
+        <input type="text" id="nom" placeholder="nom" />
+        <input type="email" id="email" placeholder="email" />
+        <input type="tel" id="telephone" placeholder="téléphone" />
+        <div>
+          <select name="Choisir un plat" id="plat">
+            <option value="choix">Choisir un plat</option>
+            <option value="thiebou">Thiebou dieune</option>
+            <option value="salade">Salade de quinoa</option>
+            <option value="sushi">Sushi burger</option>
+            <option value="poulet">Filets de poulet panés</option>
+          </select>
+          <select name="Choisir un dessert" id="dessert">
+            <option value="choix">Choisir un dessert</option>
+            <option value="churros">Churros maison</option>
+            <option value="biscuits">Biscuits aux pépites</option>
+            <option value="buche">Buche de Noël</option>
+            <option value="fromage">Gateau au fromage</option>
+          </select>
+          <input
+            class="ttchtc"
+            type="text"
+            placeholder="Total HT"
+            id="ht"
+            disabled
+          />
+          <input
+            class="ttchtc"
+            type="text"
+            placeholder="Total TTC"
+            id="ttc"
+            disabled
+          />
+        </div>
+        <input type="checkbox" name="conditions" id="conditions" />
+        <label for="conditions" id="accepte"
+          >J'accepte les conditions générales</label
+        >
+        <div id="buttondiv">
+          <button type="submit" id="validation">Valider ma commande</button>
+        </div>
+      </form>
+    </div>
+    <script src="js/reservation.js"></script>
+  </body>
+</html>
