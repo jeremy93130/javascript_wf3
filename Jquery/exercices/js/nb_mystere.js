@@ -1,3 +1,5 @@
+
+// Je déclare une variable qui 
 let aleatoire = Math.floor(Math.random() * 101);
 console.log(aleatoire);
 let essai = 7;
