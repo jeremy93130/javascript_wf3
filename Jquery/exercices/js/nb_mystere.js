@@ -30,6 +30,8 @@ $("#proposer").on("click", (e) => {
       $("#proposition").val() !== ""
     ) {
       $("#message").val(`Vous avez trouvé le nombre mystère, félicitations !`);
+      $("#message").css("color", "black");
+      alert("Félicitations, vous avez trouvé le nombre mystère");
       $("#reponse").val(aleatoire);
       $("#proposer").attr("disabled", true);
     } else if (

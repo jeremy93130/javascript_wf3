@@ -7,6 +7,38 @@ let accepte = $("#accepte");
 //   e.preventDefault();
 // });
 
+// Je fais un tableau d'objets avec mes plats et mes desserts
+
+const prixPlats = {
+  thiebou: 15,
+  salade: 12,
+  sushi: 11,
+  poulet: 9,
+};
+
+const prixDesserts = {
+  churros: 15,
+  biscuits: 12,
+  buche: 11,
+  fromage: 9,
+};
+
+// Je créer une fonction pour calculer les prix plats + desserts
+
+function calculerPrixTotal() {
+  let platValue = prixPlats[$("#plat").val()];
+  // la valeur de dessert a été laissé en "" au lieu de "0" car il ne convertissait pas la string en number
+  let dessertValue = $("#dessert").val()
+    ? prixDesserts[$("#dessert").val()]
+    : 0;
+
+  let prixTotal = platValue + dessertValue;
+  let tvaValue = tva(prixTotal);
+
+  $("#ht").val(prixTotal.toFixed(2));
+  $("#ttc").val(tvaValue.toFixed(2));
+}
+
 validation.on("click", (e) => {
   //On récupère les valeurs des inputs
   let inputName = $("#nom").val();
@@ -66,7 +98,6 @@ let plat = $("#plat");
 let dessert = $("#dessert");
 
 plat.on("change", () => {
-  let prix;
   let tvaValue;
   switch (plat.val()) {
     case "thiebou":
@@ -93,6 +124,8 @@ plat.on("change", () => {
       $("#ttc").val(tvaValue);
       break;
   }
+
+  calculerPrixTotal();
 });
 
 dessert.on("change", () => {
@@ -122,4 +155,6 @@ dessert.on("change", () => {
       $("#ttc").val(tvaValue);
       break;
   }
+  calculerPrixTotal();
 });
+console.log(dessert.val());
