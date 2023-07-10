@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.0/dist/jquery.min.js"></script>
+    <title>Document</title>
+    <style>
+      .carousel {
+        width: 300px;
+        height: 200px;
+        margin: auto;
+      }
+      .slide {
+        background-image: url("./img/chat2.jpg");
+        width: 700px;
+        height: 600px;
+        background-position: center;
+        position: relative;
+      }
+
+      #previous {
+        position: absolute;
+        top: 270px;
+        left: -150px;
+        cursor: default;
+      }
+      #next {
+        position: absolute;
+        top: 270px;
+        right: -150px;
+        cursor: default;
+      }
+
+      span {
+        font-size: 100px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="carousel">
+      <div class="slide">
+        <!-- <img src="./img/chats.webp" alt="" />
+        <img src="./img/chats.webp" alt="" /> -->
+        <span id="previous" alt="">&lt;</span>
+        <span id="next" alt="">&gt;</span>
+      </div>
+    </div>
+    <script>
+      // On récupère les images en tableau
+      let images = ["./img/chat2.jpg", "./img/chats.webp"];
+      //   on initie une variable à 0 pour les index
+      let indexPlace = 0;
+      $("#previous").on("click", () => {
+        // au click sur précédent
+        indexPlace--; // décrément indexPlace
+        if (indexPlace < 0) {
+          // Si indexPlace < 0
+          indexPlace = images.length - 1; // indexPlace = image.length (2) - 1 (il y a 2 éléments , l'index commence par zéro donc 0 et 1, '2' retournera du vide donc 2 - 1 pour l'index 1)
+        }
+        $(".slide").css({
+          backgroundImage: `url(${images[indexPlace]})`,
+        });
+      });
+      $("#next").on("click", () => {
+        indexPlace++;
+        if (indexPlace >= images.length) {
+          indexPlace = 0;
+        }
+        $(".slide").css({
+          backgroundImage: `url(${images[indexPlace]})`,
+        });
+      });
+    </script>
+  </body>
+</html>
